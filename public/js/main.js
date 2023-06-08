@@ -1,11 +1,11 @@
 const deleteBtn = document.querySelectorAll('#del')
-const todoItems = document.querySelectorAll('span.todo')
+const todoItems = document.querySelectorAll('#editBtn')
 const doingItems = document.querySelectorAll('span.doing')
 const doneItems = document.querySelectorAll('span.done')
 
 Array.from(deleteBtn).forEach(el=> el.addEventListener('click', deleteTodo))
-Array.from(todoItems).forEach(el => el.addEventListener('click', markTodo))
-Array.from(doingItems).forEach(el => el.addEventListener('click', markDoing))
+Array.from(todoItems).forEach(el => el.addEventListener('click', markDoing))
+// Array.from(doingItems).forEach(el => el.addEventListener('click', markDoing))
 Array.from(doneItems).forEach(el => el.addEventListener('click', markDone))
 
 
@@ -50,33 +50,35 @@ async function deleteTodo(){
 // }
 
 
-async function markDoing(){ //function that moves todo task to the doing column
-    const todoId = this.parentNode.dataset.id
-
-    const doingcolumn = document.getElementsByClassName('kanplan-column-doing') //assign the next column we expect the task 
-
-    try{
-        const response = await fetch('todos/markDoing', {
-            method: 'put',
-            headers: {'Content-type': 'application/json'},
-            body: JSON.stringify({
-                'todoIdFromJSFile': todoId
-            })
+async function markDoing() {
+    console.log('markDoing called');
+  
+    const todoId = this.parentNode.dataset.id;
+  
+    const doingcolumn = document.getElementsByClassName('kanplan-column-doing')[0];
+  
+    try {
+      const response = await fetch('todo/markDoing', {
+        method: 'put',
+        headers: { 'Content-type': 'application/json' },
+        body: JSON.stringify({
+          todoIdFromJSFile: todoId
         })
-        const data = await response.json() //the data that will come back will have to come back with the updated status
-
-        console.log(data)
-
-        if(data.status === 'doing'){ //status property can be used for the conditional statement, and will append the clicked on task to the next column
-            doingcolumn.appendChild(this.parentNode.dataset)
-            location.reload()
-        }
-
-
-    }catch(err){
-        console.log(err)
+      });
+  
+      const data = await response.json();
+  
+      console.log(data);
+  
+      if (data.status === 'doing') {
+        doingcolumn.appendChild(this.parentNode);
+        // location.reload();
+      }
+    } catch (err) {
+      console.log(err);
     }
-}
+  }
+  
 
 
 async function markDone(){ //function to add task to the done column
@@ -85,7 +87,7 @@ async function markDone(){ //function to add task to the done column
     const doneColumn = document.getElementsByClassName('kanplan-column-done')
 
     try{
-        const response = await fetch('todos/markDone', {
+        const response = await fetch('todo/markDone', {
             method: 'put',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({
@@ -105,3 +107,5 @@ async function markDone(){ //function to add task to the done column
         console.log(err)
     }
 }
+
+

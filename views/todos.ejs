@@ -36,12 +36,10 @@
                     <% } else if (el.status === 'doing') { %>
                         <li class="li-doing" data-id='<%= el._id %>'>
                             <span class="doing"><%= el.title %></span>
-                            <span class="del">Delete</span>
                         </li>
                     <% } else if (el.status === 'done') { %>
                         <li class="li-done" data-id='<%= el._id %>'>
                             <span class="done"><%= el.title %></span>
-                            <span class="del">Delete</span>
                         </li>
                     <% } %>
                 <% }) %>
@@ -51,7 +49,6 @@
                     <li class='todoItem' data-id='<%=el._id%>'>
                         <span class='<%= el.status === todo ? 'todo' : 'not'%>'><%= el.todo %></span>
                         <%el.addEventListener('click', markTodo)%>
-                        <span class='del'> Delete </span>
                     </li>
             <% }) %> 
                 <% */ %> -->
@@ -77,6 +74,7 @@
             </div>
         </div>
     </div>
+    <script src="js/main.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
