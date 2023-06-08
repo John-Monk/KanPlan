@@ -17,7 +17,7 @@ module.exports = {
             status: 'todo'
         })
         console.log('Todo Added')
-        res.redirect('/')
+        res.redirect('/todo')
     } catch (error) {
         console.log(error);
     }
@@ -50,8 +50,11 @@ module.exports = {
     }
   },
   deleteTodo: async (req, res) => {
+    console.log(req.body.todoIdFromJSFile)
     try {
-        await Todo.findOneAndDelete({_id:req.body.todoIdFromJSFile})
+        await Todo.findOneAndRemove({_id:req.body.todoIdFromJSFile})
+        console.log('Deleted Todo')
+        res.json('Deleted')
     } catch (error) {
       console.log(error);
     }
