@@ -55,7 +55,7 @@ async function markDoing() {
   
     const todoId = this.parentNode.dataset.id;
   
-    const doingcolumn = document.getElementsByClassName('kanplan-column-doing')[0];
+    const doingcolumn = document.getElementsByClassName('kanplan-column-doing-tasks')[0];
   
     try {
       const response = await fetch('todo/markDoing', {
@@ -84,7 +84,7 @@ async function markDoing() {
 async function markDone(){ //function to add task to the done column
     const todoId = this.parentNode.dataset.id
 
-    const doneColumn = document.getElementsByClassName('kanplan-column-done')
+    const doneColumn = document.getElementsByClassName('kanplan-column-done-tasks')
 
     try{
         const response = await fetch('todo/markDone', {
