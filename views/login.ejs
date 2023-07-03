@@ -1,15 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/css/styles.css">
-    <link rel="stylesheet" href="/css/login.css">
-</head>
-<body class="login">
-    <main>
+<%- include('partials/header') -%>
+    <main class="login">
+        <div class="login__container">
     <h1>Welcome back to Kanplan <br> 
         Sign in to continue.</h1>
     <p>Don't have an account? <a href="/signup">Create an account</a>.</p>
@@ -20,6 +11,5 @@
         <input type="password" name="password" placeholder="Password">
         <input class="login__button" type="submit">
     </form>
-</main>
-</body>
-</html>
+</div>
+<%- include('partials/footer') -%>
