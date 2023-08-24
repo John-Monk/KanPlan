@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kanplan is a powerful kanban website designed specifically for developers, offering a wide range of functionalities similar to Trello and more. With Kanplan, developers can effectively manage their projects, tasks, and workflows in a visual and organized manner.">
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -47,6 +48,7 @@
             <div class="kanplan-column-todo column">
                     <h2 class="kanplan-column-title">ToDo</h2>
                 <div class="kanplan-column-tasks">
+                    <ul>
                     <% todos.forEach(el => {
                         if(el.status === 'todo') { %>
                             <li class="todoItem li-todo" data-id="<%= el._id %>">
@@ -79,6 +81,7 @@
                             </div>
                         <% }
                     }); %>
+                    </ul>
                 </div>
                 <div class="divForForm">
                 <form class="toDoForm" action="/todo/createTodo/<%= board._id %>" method="POST">
@@ -108,6 +111,7 @@
             <div class="kanplan-column-doing column">
                 <h2 class="kanplan-column-title">Doing</h2>
                 <div class="kanplan-column-tasks">
+                    <ul>
                     <% todos.forEach(el => {
                         if(el.status === 'doing') { %>
                             <li class="todoItem li-todo" data-id="<%= el._id %>">
@@ -140,6 +144,7 @@
                             </div>
                         <% }
                     }); %>
+                    </ul>
                 </div>
                 
             <div id="col-settings-doing" class="col-modal">
@@ -162,6 +167,7 @@
             <div class="kanplan-column-done column">
                 <h2 class="kanplan-column-title">Done</h2>
                 <div class="kanplan-column-tasks">
+                    <ul>
                     <% todos.forEach(el => {
                         if(el.status === 'done') { %>
                             <li class="todoItem li-todo" data-id="<%= el._id %>">
@@ -195,6 +201,7 @@
     
                     <% }
                     }); %>
+                    </ul>
                 </div>
                 <div id="col-settings-done" class="col-modal">
                 <div class="modal-content">

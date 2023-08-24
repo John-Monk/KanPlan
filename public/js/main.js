@@ -556,7 +556,7 @@ function switchToCoverBackgroundMenu() {
 	unsplashCoverContainer.appendChild(unsplashLink)
 
 	const searchInput = document.createElement('input');
-	searchInput.classList.add('search-input-background');
+	searchInput.classList.add('search-input-cover');
 	searchInput.setAttribute('type', 'text');
 	searchInput.setAttribute('placeholder', 'Search for photos');
 	searchInput.id = 'searchCoverInput';
@@ -706,15 +706,3 @@ function displayPhotosSmall(data) {
 	// 	coverContainer.style.backgroundImage = 'none'
 	// }
 }
-  
-// window.addEventListener('DOMContentLoaded', () => {
-// 	const selectedCoverPhotoURL = localStorage.getItem('selectedCoverPhotoURL')
-// 	if (selectedCoverPhotoURL) {
-// 		const coverImg = new Image()
-// 		coverImg.src = selectedCoverPhotoURL
-// 		coverImg.addEventListener('load', function () {
-// 			const coverContainer = document.querySelector('.cover-container')
-// 			coverContainer.style.backgroundImage = `url('${selectedCoverPhotoURL}')`
-// 		})
-// 	}
-// })
